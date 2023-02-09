@@ -5,7 +5,7 @@ package org.example;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
+
 
 public class Main {
 
@@ -171,15 +171,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        UniqueNumbers userNumbers = new UniqueNumbers(14690, 4);
+        UniqueNumbers userNumbers = new UniqueNumbers(1345689, 5);
         System.out.println("Set of digits: " + userNumbers.toDigitSet());
         System.out.println("Number of combinations = " + userNumbers.numberOfCombinations());
-        System.out.println("All possible combinations = " + userNumbers.allPossibleCombinations().ge);
-
-
-        Factorial factorial = new Factorial();
-        System.out.println("5! = " + factorial.calc(5));
-
+        System.out.println("All combinations in List of Lists = " + userNumbers.toArrayOfArrays());
 
         /*
         String userString = "asdj asdl346 .? asdk3859";

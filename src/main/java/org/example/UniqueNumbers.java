@@ -1,12 +1,8 @@
 package org.example;
 
-import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NonNull;
 
-import java.math.BigInteger;
 import java.util.*;
 
 
@@ -37,7 +33,7 @@ public class UniqueNumbers {
         Factorial factorial = new Factorial();
         System.out.println(this.toDigitSet().size() + "  " + numberOfDigits);
         long result = factorial.calc(this.toDigitSet().size()) /
-                      factorial.calc(this.toDigitSet().size() - numberOfDigits);
+                      (factorial.calc(this.toDigitSet().size() - numberOfDigits) * factorial.calc(numberOfDigits));
         return result;
     }
 
@@ -49,6 +45,14 @@ public class UniqueNumbers {
     public Set<Set<Integer>> allPossibleCombinations(){
         Set<Set<Integer>> result = Sets.combinations(Sets.newHashSet(toDigitSet()), numberOfDigits);
         return result;
+    }
+
+    public ArrayList<ArrayList<Integer>> toArrayOfArrays(){
+        ArrayList<ArrayList<Integer>> arrayOfArrays = new ArrayList<>();
+        for (Set<Integer> set : allPossibleCombinations()){
+            arrayOfArrays.add(new ArrayList<>(set));
+        }
+        return arrayOfArrays;
     }
 
 
