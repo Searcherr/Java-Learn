@@ -168,9 +168,40 @@ public class Main {
         return result;
     }
 
+    public static int getASCIIValue(char inputCharacter){
+        return (int) inputCharacter;
+    }
+
+    public static int getSumOfNumberMultiplications(int inputNumber, int inputRawLength){
+        List<Integer> listOfMultiplications = new ArrayList();
+        int counter = 1;
+        while (counter <= inputRawLength){
+            double currentValue = 0;
+            for (double i = 0; i < counter; i++) {
+                currentValue += inputNumber * Math.pow(10, i);
+            }
+            listOfMultiplications.add((int) currentValue);
+            counter++;
+        }
+        return listOfMultiplications.stream()
+                .mapToInt(Integer::intValue)
+                .sum();
+    }
 
     public static void main(String[] args) {
+        System.out.println("Result = " + getSumOfNumberMultiplications(5, 3));
 
+
+
+
+
+        //MergeListsToUniqueList userList = new MergeListsToUniqueList();
+
+        //userList.setInputUniqueElements(Arrays.asList(1, 5, 7, 9, 9, 9));
+        //System.out.println("Set is = " + userList.getInputUniqueElements());
+
+        //System.out.println("ASCII of Q is " + getASCIIValue('Q'));
+        /* UniqueNumbersCombinations
         UniqueNumbers userNumbers = new UniqueNumbers(1234, 3);
         System.out.println("Set of digits: " + userNumbers.toDigitSet() + "\n");
 
@@ -181,6 +212,8 @@ public class Main {
         System.out.println("All permutations of combinations = " + userNumbers.getPermutations());
 
         System.out.println("to DigitSet type = " + userNumbers.toDigitSet().getClass().getName());
+        */
+
         //userNumbers.getPermutations();
         /*
         String userString = "asdj asdl346 .? asdk3859";
