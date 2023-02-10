@@ -175,7 +175,8 @@ public class Main {
         System.out.println("Set of digits: " + userNumbers.toDigitSet());
         System.out.println("Number of combinations = " + userNumbers.numberOfCombinations());
         System.out.println("All combinations in List of Lists = " + userNumbers.toArrayOfArrays());
-
+        System.out.println("All permutations of combinations = " + userNumbers.getPermutations());
+        //userNumbers.getPermutations();
         /*
         String userString = "asdj asdl346 .? asdk3859";
         System.out.println("Result with if = " + countElementsTypes(userString));

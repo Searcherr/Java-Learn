@@ -1,6 +1,8 @@
 package org.example;
 
+import com.google.common.collect.Collections2;
 import com.google.common.collect.Sets;
+import com.google.common.collect.Collections2.*;
 import lombok.Data;
 
 import java.util.*;
@@ -55,9 +57,17 @@ public class UniqueNumbers {
         return arrayOfArrays;
     }
 
-    public ArrayList<Integer> getPermutations(){
+    public ArrayList<List<Integer>> getPermutations(){
+        ArrayList<List<Integer>> permutationsOfCombinations = new ArrayList<List<Integer>>();
+        for (ArrayList<Integer> combination : toArrayOfArrays()){
+            Collection<List<Integer>> permutations = Collections2.orderedPermutations(combination);
+            for (List<Integer> element : permutations){
+                permutationsOfCombinations.add(element);
 
+            }
+
+        }
+        return permutationsOfCombinations;
     }
-
 
 }
