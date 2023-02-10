@@ -179,6 +179,8 @@ public class Main {
 
         System.out.println("Number of permutations = " + userNumbers.numberOfPermutations());
         System.out.println("All permutations of combinations = " + userNumbers.getPermutations());
+
+        System.out.println("to DigitSet type = " + userNumbers.toDigitSet().getClass().getName());
         //userNumbers.getPermutations();
         /*
         String userString = "asdj asdl346 .? asdk3859";

@@ -11,8 +11,8 @@ import java.util.*;
 @Data
 
 public class UniqueNumbers {
-    Integer inputDigitsList;
-    Integer numberOfDigits;
+    private Integer inputDigitsList;
+    private Integer numberOfDigits;
 
     UniqueNumbers(Integer inputDigitsList, Integer numberOfDigits){
         if ((inputDigitsList >= 10) &&
@@ -21,7 +21,7 @@ public class UniqueNumbers {
             this.numberOfDigits = numberOfDigits;
         } else System.out.println("Shitty parameters");//throw new RuntimeException("Shitty parameters");
     }
-    public Collection<Integer> toDigitSet() {
+    public Set<Integer> toDigitSet() {
         Set<Integer> setOfDigits = new HashSet<>();
         int tempDigitList = inputDigitsList;
         while (tempDigitList >= 1) {
@@ -45,18 +45,16 @@ public class UniqueNumbers {
         return result;
     }
 
-    public ArrayList<Integer> setToArrayList(){
-        ArrayList<Integer> inputDigitsListAsArrayList = new ArrayList<>();
+    public List<Integer> setToArrayList(){
         return new ArrayList<>(toDigitSet());
     }
 
     public Set<Set<Integer>> allPossibleCombinations(){
-        Set<Set<Integer>> result = Sets.combinations(Sets.newHashSet(toDigitSet()), numberOfDigits);
-        return result;
+        return Sets.combinations(Sets.newHashSet(toDigitSet()), numberOfDigits);
     }
 
-    public ArrayList<ArrayList<Integer>> toArrayOfArrays(){
-        ArrayList<ArrayList<Integer>> arrayOfArrays = new ArrayList<>();
+    public List<List<Integer>> toArrayOfArrays(){
+        List<List<Integer>> arrayOfArrays = new ArrayList<>();
         for (Set<Integer> set : allPossibleCombinations()){
             arrayOfArrays.add(new ArrayList<>(set));
         }
@@ -65,7 +63,7 @@ public class UniqueNumbers {
 
     public ArrayList<List<Integer>> getPermutations(){
         ArrayList<List<Integer>> permutationsOfCombinations = new ArrayList<List<Integer>>();
-        for (ArrayList<Integer> combination : toArrayOfArrays()){
+        for (List<Integer> combination : toArrayOfArrays()){
             Collection<List<Integer>> permutations = Collections2.orderedPermutations(combination);
             for (List<Integer> element : permutations){
                 permutationsOfCombinations.add(element);
