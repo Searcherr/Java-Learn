@@ -172,9 +172,12 @@ public class Main {
     public static void main(String[] args) {
 
         UniqueNumbers userNumbers = new UniqueNumbers(1234, 3);
-        System.out.println("Set of digits: " + userNumbers.toDigitSet());
+        System.out.println("Set of digits: " + userNumbers.toDigitSet() + "\n");
+
         System.out.println("Number of combinations = " + userNumbers.numberOfCombinations());
-        System.out.println("All combinations in List of Lists = " + userNumbers.toArrayOfArrays());
+        System.out.println("All combinations in List of Lists = " + userNumbers.toArrayOfArrays() + "\n");
+
+        System.out.println("Number of permutations = " + userNumbers.numberOfPermutations());
         System.out.println("All permutations of combinations = " + userNumbers.getPermutations());
         //userNumbers.getPermutations();
         /*

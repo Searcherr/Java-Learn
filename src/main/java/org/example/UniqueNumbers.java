@@ -33,9 +33,15 @@ public class UniqueNumbers {
 
     public long numberOfCombinations(){
         Factorial factorial = new Factorial();
-        System.out.println(this.toDigitSet().size() + "  " + numberOfDigits);
         long result = factorial.calc(this.toDigitSet().size()) /
                       (factorial.calc(this.toDigitSet().size() - numberOfDigits) * factorial.calc(numberOfDigits));
+        return result;
+    }
+
+    public long numberOfPermutations(){
+        Factorial factorial = new Factorial();
+        long result = factorial.calc(this.toDigitSet().size()) /
+                (factorial.calc(this.toDigitSet().size() - numberOfDigits));
         return result;
     }
 
