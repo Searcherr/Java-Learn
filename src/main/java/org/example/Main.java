@@ -171,7 +171,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        UniqueNumbers userNumbers = new UniqueNumbers(1345689, 5);
+        UniqueNumbers userNumbers = new UniqueNumbers(1234, 3);
         System.out.println("Set of digits: " + userNumbers.toDigitSet());
         System.out.println("Number of combinations = " + userNumbers.numberOfCombinations());
         System.out.println("All combinations in List of Lists = " + userNumbers.toArrayOfArrays());

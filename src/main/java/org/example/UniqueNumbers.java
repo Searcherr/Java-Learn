@@ -55,5 +55,9 @@ public class UniqueNumbers {
         return arrayOfArrays;
     }
 
+    public ArrayList<Integer> getPermutations(){
+
+    }
+
 
 }
