@@ -6,6 +6,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+// Tasks from https://www.w3resource.com/java-exercises/basic/index.php
 
 public class Main {
 
@@ -188,18 +189,54 @@ public class Main {
                 .sum();
     }
 
+    //48. Write a Java program to print the odd numbers from 1 to 99. Prints one number per line.
+
+    public static void printOdd(int start, int end){
+        List<Integer> oddNumbers = IntStream.rangeClosed(start, end)
+                .filter(n -> n % 2 != 0)
+                .boxed()
+                .collect(Collectors.toList());
+
+        oddNumbers.stream().forEach(s -> System.out.println(s));
+    }
+
+    //50 .Write a Java program to print numbers between 1 to 100 which are divisible by 3, 5 and by both.
+    public static void divByThreeOrFiveAndBoth(int start, int end){
+        List<Integer> divThree = IntStream.rangeClosed(start, end)
+                .filter(n -> n % 3 == 0)
+                .boxed()
+                .collect(Collectors.toList());
+
+        List<Integer> divFive = IntStream.rangeClosed(start, end)
+                .filter(n -> n % 5 == 0)
+                .boxed()
+                .collect(Collectors.toList());
+
+        List<Integer> divThreeAndFive = IntStream.rangeClosed(start, end)
+                .filter(n -> (n % 3 == 0) && (n % 5 == 0))
+                .boxed()
+                .collect(Collectors.toList());
+
+        System.out.println("Divided by 3:");
+        divThree.stream().forEach(s -> System.out.print(s + ", "));
+        System.out.println("\nDivided by 5:");
+        divFive.stream().forEach(s -> System.out.print(s + ", "));
+        System.out.println("\nDivided by 3 & 5:");
+        divThreeAndFive.stream().forEach(s -> System.out.print(s + ", "));
+
+    }
+
     public static void main(String[] args) {
-        System.out.println("Result = " + getSumOfNumberMultiplications(5, 3));
 
+        divByThreeOrFiveAndBoth(1, 100);
+        //printOdd(1, 100);
+        //System.out.println("Result = " + getSumOfNumberMultiplications(5, 3));
 
-
-
-
-        //MergeListsToUniqueList userList = new MergeListsToUniqueList();
-
-        //userList.setInputUniqueElements(Arrays.asList(1, 5, 7, 9, 9, 9));
-        //System.out.println("Set is = " + userList.getInputUniqueElements());
-
+        /*
+        MergeListsToUniqueList userList = new MergeListsToUniqueList();
+        userList.setInputUniqueElements(Arrays.asList(1, 5, 7, 9, 9, 9));
+        System.out.println("Set is = " + userList.getInputUniqueElements());
+        */
         //System.out.println("ASCII of Q is " + getASCIIValue('Q'));
         /* UniqueNumbersCombinations
         UniqueNumbers userNumbers = new UniqueNumbers(1234, 3);
