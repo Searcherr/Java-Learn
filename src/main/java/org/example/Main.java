@@ -225,12 +225,45 @@ public class Main {
         divThreeAndFive.stream().forEach(s -> System.out.print(s + ", "));
 
     }
+    // 56. Write a Java program to find the number of values in a given range divisible by a given value.
+    // For example x = 5, y=20 and p =3, find the number of integers within the range x..y and that are divisible by p i.e. { i :x ≤ i ≤ y, i mod p = 0 }
+    public static int divisibleList(int start, int end, int denominator) {
+        List<Integer> result = IntStream.rangeClosed(start, end)
+                .filter(n -> n % denominator == 0)
+                .boxed()
+                .collect(Collectors.toList());
+        return result.size();
+    }
+
+    // 57. Write a Java program to accepts an integer and count the factors of the number.
+    public static List<Integer> factorsOfNumber(int inputNumber) {
+        List<Integer> result = IntStream.rangeClosed(1, (int) inputNumber / 2)
+                .filter(n -> inputNumber % n == 0)
+                .boxed()
+                .collect(Collectors.toList());
+        result.add(inputNumber);
+        return result;
+    }
+
+    // 58. Write a Java program to capitalize the first letter of each word in a sentence.
+    // ????????????????????
+    public static String capitalizeLetterOfEachWord(String inputSentence) {
+        String result = Arrays.stream(inputSentence.split("\\s+"))
+                .map(t -> t.substring(0, 1).toUpperCase() + t.substring(1))
+                .collect(Collectors.joining(" "));
+        return result;
+    }
 
     public static void main(String[] args) {
-        Clock userClock = new Clock(86399);
 
-        userClock.printTime();
+        System.out.print(capitalizeLetterOfEachWord("in god we trust"));
 
+        //factorsOfNumber(25).stream().forEach(s -> System.out.print(s + ", "));
+
+        //System.out.println("Result = " + divisibleList(5, 20, 3));
+
+        //Clock userClock = new Clock(86399);
+        //userClock.printTime();
 
         //divByThreeOrFiveAndBoth(1, 100);
         //printOdd(1, 100);
