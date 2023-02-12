@@ -227,8 +227,13 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        Clock userClock = new Clock(86399);
+        userClock.setHours();
+        userClock.setMinutes();
+        userClock.printTime();
 
-        divByThreeOrFiveAndBoth(1, 100);
+
+        //divByThreeOrFiveAndBoth(1, 100);
         //printOdd(1, 100);
         //System.out.println("Result = " + getSumOfNumberMultiplications(5, 3));
 
