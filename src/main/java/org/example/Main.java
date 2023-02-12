@@ -228,8 +228,7 @@ public class Main {
 
     public static void main(String[] args) {
         Clock userClock = new Clock(86399);
-        userClock.setHours();
-        userClock.setMinutes();
+
         userClock.printTime();
 
 
