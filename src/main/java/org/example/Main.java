@@ -5,6 +5,7 @@ package org.example;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 // Tasks from https://www.w3resource.com/java-exercises/basic/index.php
 
@@ -270,8 +271,16 @@ public class Main {
 
     }
 
+    // 61. Write a Java program to reverse a word.
+    public static String reverseWord(String inputWord) {
+        return Stream.of(inputWord)
+                .map(word -> new StringBuilder(word).reverse())
+                .collect(Collectors.joining(" "));
+    }
+
     public static void main(String[] args) {
 
+        System.out.println(reverseWord("dsaf"));
 
 
         //System.out.println(penultimateWordInString("The quick brown fox jumps over the lazy dog"));
