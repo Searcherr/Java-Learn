@@ -254,9 +254,31 @@ public class Main {
         return result;
     }
 
+    // 59. Write a Java program to convert a given string into lowercase
+    public static String stringToLowercase(String inputSentence) {
+        String result = Arrays.stream(inputSentence.split("\\s+"))
+                .map(t -> t.substring(0).toLowerCase())
+                .collect(Collectors.joining(" "));
+        return result;
+    }
+
+    // 60. Write a Java program to find the penultimate (next to last) word of a sentence.
+    public static String penultimateWordInString(String inputSentence) {
+        List<String> splitedInputStream = Arrays.stream(inputSentence.split("\\s+"))
+                .collect(Collectors.toList());
+        return splitedInputStream.get(splitedInputStream.size() - 2);
+
+    }
+
     public static void main(String[] args) {
 
-        System.out.print(capitalizeLetterOfEachWord("in god we trust"));
+
+
+        //System.out.println(penultimateWordInString("The quick brown fox jumps over the lazy dog"));
+
+        //System.out.print(stringToLowercase("THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG"));
+
+        //System.out.print(capitalizeLetterOfEachWord("in god we trust"));
 
         //factorsOfNumber(25).stream().forEach(s -> System.out.print(s + ", "));
 
