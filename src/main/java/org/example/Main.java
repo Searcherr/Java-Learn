@@ -305,10 +305,21 @@ public class Main {
             return digitsOfFirstValue.anyMatch(digitsOfSecondValue::contains);
         }
     }
+    // 65. Write a Java program to calculate the modules of two numbers without using any inbuilt modulus operator.
+    public static int modulesOfTwoNumbers(int firstNumber, int secondNumber) {
+        List<Integer> inputNumbersListSorted = IntStream.of(firstNumber, secondNumber)
+                                                        .sorted()
+                                                        .boxed()
+                                                        .toList();
+        //inputNumbersListSorted.stream().forEach(n -> System.out.print(n + " "));
+        return (int) (Math.sqrt(Math.pow(inputNumbersListSorted.get(1) - inputNumbersListSorted.get(0), 2)));
+    }
 
     public static void main(String[] args) {
 
-        System.out.println(isCommonDigit("31", "70"));
+        System.out.print(modulesOfTwoNumbers(-10, -2));
+
+        //System.out.println(isCommonDigit("31", "70"));
 
         //System.out.println(task62(10, 12, 20));
 
