@@ -2,6 +2,7 @@ package org.example;
 
 //import lombok.NonNull;
 
+import java.time.temporal.ValueRange;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -278,10 +279,40 @@ public class Main {
                 .collect(Collectors.joining(" "));
     }
 
+    // 62. Write a Java program that accepts three integer values and return true if one of them is 20 or more
+    // and less than the substractions of others.
+    // ???????????????????????????????????????????
+    public static boolean task62(int firstNum, int secondNum, int thirdNum) {
+        boolean is20OrMore = Stream.of(firstNum, secondNum, thirdNum)
+                .anyMatch(n -> n >= 20);
+
+        return is20OrMore;
+    }
+
+    // 64. Write a Java program that accepts two integer values between 25 to 75 and
+    // return true if there is a common digit in both numbers.
+    public static boolean isCommonDigit(String firstValue, String secondValue) {
+        final ValueRange range = ValueRange.of(25, 75);
+        if (! range.isValidIntValue(Integer.parseInt(firstValue)) ||
+                (! range.isValidIntValue(Integer.parseInt(secondValue)))) {
+            return false;
+        } else {
+            IntStream digitsOfFirstValue = firstValue.chars().map(Character::getNumericValue);
+            List<Integer> digitsOfSecondValue = secondValue
+                                                    .chars().map(Character::getNumericValue)
+                                                    .boxed().toList();
+
+            return digitsOfFirstValue.anyMatch(digitsOfSecondValue::contains);
+        }
+    }
+
     public static void main(String[] args) {
 
-        System.out.println(reverseWord("dsaf"));
+        System.out.println(isCommonDigit("31", "70"));
 
+        //System.out.println(task62(10, 12, 20));
+
+        //System.out.println(reverseWord("dsaf"));
 
         //System.out.println(penultimateWordInString("The quick brown fox jumps over the lazy dog"));
 
