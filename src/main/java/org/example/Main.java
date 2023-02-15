@@ -13,10 +13,7 @@ import java.util.stream.Stream;
 public class Main {
 
     private static boolean dividesByTwo(int numerator, int denominator){
-        if (numerator % denominator == 0){
-            return true;
-        }
-        return false;
+        return numerator % denominator == 0;
     }
 
     private static List<String> swichVariables(String firstWord, String seconsWord){
@@ -46,37 +43,31 @@ public class Main {
     }
 
     private static int task_3_int_part_of_division(int number_1, int number_2){
-        int result = number_1 / number_2;
-        return result;
+        return number_1 / number_2;
     }
 
     private static int task_4a(int number_1, int number_2, int number_3){
-        int result = number_1 + number_2 * number_3;
-        return result;
+        return number_1 + number_2 * number_3;
     }
 
     private static int task_4b(int number_1, int number_2, int number_3){
-        int result = (number_1 + number_2) % number_3;
-        return result;
+        return (number_1 + number_2) % number_3;
     }
 
 
     private static int task_4c(int number_1, int number_2, int number_3, int number_4){
         float result = number_1 + number_2 * number_3 / number_4;
-        int int_result = (int) result;
-        return int_result;
+        return (int) result;
     }
 
     private static int task_4d
             (int number_1, int number_2, int number_3,
              int number_4, int number_5, int number_6){
-        int result = number_1 + number_2 / number_3 * number_4 + number_5 % number_6;
-        return result;
+        return number_1 + number_2 / number_3 * number_4 + number_5 % number_6;
     }
 
     private static int task_5_product(int number_1, int number_2){
-        int result = number_1 * number_2;
-        return result;
+        return number_1 * number_2;
     }
 
     private static List<Integer> task_7_multiplication_table(int multiplier){
@@ -259,7 +250,7 @@ public class Main {
     // 59. Write a Java program to convert a given string into lowercase
     public static String stringToLowercase(String inputSentence) {
         return Arrays.stream(inputSentence.split("\\s+"))
-                .map(t -> t.substring(0).toLowerCase())
+                .map(String::toLowerCase)
                 .collect(Collectors.joining(" "));
         //return result;
     }
