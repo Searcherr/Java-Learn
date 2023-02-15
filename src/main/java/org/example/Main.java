@@ -176,7 +176,7 @@ public class Main {
     }
 
     public static int getSumOfNumberMultiplications(int inputNumber, int inputRawLength){
-        List<Integer> listOfMultiplications = new ArrayList();
+        List<Integer> listOfMultiplications = new ArrayList<>();
         int counter = 1;
         while (counter <= inputRawLength){
             double currentValue = 0;
@@ -197,9 +197,9 @@ public class Main {
         List<Integer> oddNumbers = IntStream.rangeClosed(start, end)
                 .filter(n -> n % 2 != 0)
                 .boxed()
-                .collect(Collectors.toList());
+                .toList();
 
-        oddNumbers.stream().forEach(s -> System.out.println(s));
+        oddNumbers.forEach(System.out::println);
     }
 
     //50 .Write a Java program to print numbers between 1 to 100 which are divisible by 3, 5 and by both.
@@ -207,24 +207,24 @@ public class Main {
         List<Integer> divThree = IntStream.rangeClosed(start, end)
                 .filter(n -> n % 3 == 0)
                 .boxed()
-                .collect(Collectors.toList());
+                .toList();
 
         List<Integer> divFive = IntStream.rangeClosed(start, end)
                 .filter(n -> n % 5 == 0)
                 .boxed()
-                .collect(Collectors.toList());
+                .toList();
 
         List<Integer> divThreeAndFive = IntStream.rangeClosed(start, end)
                 .filter(n -> (n % 3 == 0) && (n % 5 == 0))
                 .boxed()
-                .collect(Collectors.toList());
+                .toList();
 
         System.out.println("Divided by 3:");
-        divThree.stream().forEach(s -> System.out.print(s + ", "));
+        divThree.forEach(s -> System.out.print(s + ", "));
         System.out.println("\nDivided by 5:");
-        divFive.stream().forEach(s -> System.out.print(s + ", "));
+        divFive.forEach(s -> System.out.print(s + ", "));
         System.out.println("\nDivided by 3 & 5:");
-        divThreeAndFive.stream().forEach(s -> System.out.print(s + ", "));
+        divThreeAndFive.forEach(s -> System.out.print(s + ", "));
 
     }
     // 56. Write a Java program to find the number of values in a given range divisible by a given value.
@@ -233,7 +233,7 @@ public class Main {
         List<Integer> result = IntStream.rangeClosed(start, end)
                 .filter(n -> n % denominator == 0)
                 .boxed()
-                .collect(Collectors.toList());
+                .toList();
         return result.size();
     }
 
@@ -250,24 +250,24 @@ public class Main {
     // 58. Write a Java program to capitalize the first letter of each word in a sentence.
     // ????????????????????
     public static String capitalizeLetterOfEachWord(String inputSentence) {
-        String result = Arrays.stream(inputSentence.split("\\s+"))
+        return Arrays.stream(inputSentence.split("\\s+"))
                 .map(t -> t.substring(0, 1).toUpperCase() + t.substring(1))
                 .collect(Collectors.joining(" "));
-        return result;
+        //return result;
     }
 
     // 59. Write a Java program to convert a given string into lowercase
     public static String stringToLowercase(String inputSentence) {
-        String result = Arrays.stream(inputSentence.split("\\s+"))
+        return Arrays.stream(inputSentence.split("\\s+"))
                 .map(t -> t.substring(0).toLowerCase())
                 .collect(Collectors.joining(" "));
-        return result;
+        //return result;
     }
 
     // 60. Write a Java program to find the penultimate (next to last) word of a sentence.
     public static String penultimateWordInString(String inputSentence) {
         List<String> splitedInputStream = Arrays.stream(inputSentence.split("\\s+"))
-                .collect(Collectors.toList());
+                .toList();
         return splitedInputStream.get(splitedInputStream.size() - 2);
 
     }
@@ -283,10 +283,8 @@ public class Main {
     // and less than the substractions of others.
     // ???????????????????????????????????????????
     public static boolean task62(int firstNum, int secondNum, int thirdNum) {
-        boolean is20OrMore = Stream.of(firstNum, secondNum, thirdNum)
+        return Stream.of(firstNum, secondNum, thirdNum)
                 .anyMatch(n -> n >= 20);
-
-        return is20OrMore;
     }
 
     // 64. Write a Java program that accepts two integer values between 25 to 75 and
@@ -315,9 +313,39 @@ public class Main {
         return (int) (Math.sqrt(Math.pow(inputNumbersListSorted.get(1) - inputNumbersListSorted.get(0), 2)));
     }
 
+    // 66. Write a Java program to compute the sum of the first 100 prime numbers.
+    public static boolean isPrime(long number) {
+        return IntStream.rangeClosed(2,(int) number / 2)
+                .allMatch(d -> number % d !=0);
+    }
+    public static long sumOfTheFirst100PrimeNumbers() {
+        List<Long> primeNumbers = new ArrayList<>(100);
+        long currentNum = 1;
+        while (primeNumbers.size() <= 100) {
+            if (isPrime(currentNum)){
+                primeNumbers.add(currentNum);
+            }
+            currentNum++;
+        }
+        return primeNumbers.stream()
+                        .mapToLong(primeNumber -> primeNumber)
+                        .sum();
+    }
+
+
+    // 74. Write a Java program to test if 10 appears as either the first or last element of an array of integers.
+    // The length of the array must be greater than or equal to 2.
+    public static boolean firstAndLastElementOfArrayIs10(List<Integer> inputArray) {
+        return (Objects.equals(inputArray.get(0), inputArray.get(inputArray.size() - 1))) &&
+                (inputArray.get(0) == 10);
+    }
+
     public static void main(String[] args) {
 
-        System.out.print(modulesOfTwoNumbers(-10, -2));
+        //System.out.println(firstAndLastElementOfArrayIs10(Arrays.asList(10, 20, 40, 1)));
+
+        //System.out.print(sumOfTheFirst100PrimeNumbers());
+        //System.out.print(modulesOfTwoNumbers(-10, -2));
 
         //System.out.println(isCommonDigit("31", "70"));
 
