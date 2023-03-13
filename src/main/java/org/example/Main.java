@@ -294,6 +294,7 @@ public class Main {
             return digitsOfFirstValue.anyMatch(digitsOfSecondValue::contains);
         }
     }
+
     // 65. Write a Java program to calculate the modules of two numbers without using any inbuilt modulus operator.
     public static int modulesOfTwoNumbers(int firstNumber, int secondNumber) {
         List<Integer> inputNumbersListSorted = IntStream.of(firstNumber, secondNumber)
@@ -331,7 +332,39 @@ public class Main {
                 (inputArray.get(0) == 10);
     }
 
+    public static int task1(int n) {
+        //TODO: Delete line below and write your own solution
+        if (n > 0) {
+            return (int) Math.pow((double) n, 2);
+        } else if (n < 0) {
+            return Math.abs(n);
+        }
+        return 0;
+    }
+
+    public static int task2(int n) {
+        String inputValueAsString = String.valueOf(n);
+        List<Integer> digitOfInputNumber = new ArrayList<>(inputValueAsString
+                .chars().map(Character::getNumericValue)
+                .sorted()
+                .boxed().toList());
+        Collections.reverse(digitOfInputNumber);
+
+        int result = 0;
+        for (Integer i : digitOfInputNumber) {
+            result = result * 10 + i;
+        }
+        return result;
+
+    }
+
     public static void main(String[] args) {
+
+        System.out.println("Result: " + task2(187));
+
+
+
+        //System.out.println("Result: " + task1(0));
 
         //System.out.println(firstAndLastElementOfArrayIs10(Arrays.asList(10, 20, 40, 1)));
 
